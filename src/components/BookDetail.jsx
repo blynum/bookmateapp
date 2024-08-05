@@ -1,16 +1,19 @@
 // components/BookDetail.jsx
 import React, { useContext } from "react";
 import { BookContext } from "../contexts/BookContext";
+import { useNavigate } from "react-router-dom";
 
 const BookDetail = ({ book }) => {
   const { addToReadingList } = useContext(BookContext);
+  const navigate = useNavigate();
 
   if (!book || !book.volumeInfo) {
     return <div>Loading...</div>;
   }
 
-  const handleAddToReadingList = () => {
-    addToReadingList(book);
+  const handleAddToReadingList = async () => {
+    await addToReadingList(book);
+    navigate("/profile");
   };
 
   return (
