@@ -1,15 +1,19 @@
 // components/ReadingList.jsx
 import React, { useContext } from "react";
-import { BookContext } from "../contexts/BookContent";
-import BookCard from "./Bookcard";
+import { BookContext } from "../contexts/BookContext";
+import ReadingListCard from "./ReadingListCard";
 
 const ReadingList = () => {
-  const { readingList } = useContext(BookContext);
+  const { readingList, removeFromReadingList } = useContext(BookContext);
 
   return (
     <div className="book-list">
       {readingList.map((book) => (
-        <BookCard key={book.id} book={book} />
+        <ReadingListCard
+          key={book.id}
+          book={book}
+          onRemove={removeFromReadingList}
+        />
       ))}
     </div>
   );

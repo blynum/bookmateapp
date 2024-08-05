@@ -8,7 +8,7 @@ const Header = () => {
       <h1>BookMate</h1>
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/profile">Profile</Link>
+        <Link to="/profile">Reading List</Link>
       </nav>
     </header>
   );
